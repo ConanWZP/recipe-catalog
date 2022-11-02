@@ -1,0 +1,15 @@
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 32px;
+  font-weight: 700;
+  background-color: #61dafb;
+
+  input {
+    padding: 10px;
+    border-radius: 20px;
+    width: 280px;
+  }
+}
