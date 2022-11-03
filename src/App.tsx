@@ -7,6 +7,7 @@ import MainPage from "./pages/MainPage";
 import Header from "./components/Header/Header";
 import Navbar from './components/Navbar/Navbar';
 import LayoutForOutlet from "./layout/LayoutForOutlet";
+import CategoriesPage from "./pages/CategoriesPage";
 
 
 
@@ -25,6 +26,7 @@ const App = () => {
                     <Routes>
                         <Route path={'/'} element={<LayoutForOutlet/>}>
                             <Route path={''} element={<MainPage/>}/>
+                            <Route path={'categories'} element={<CategoriesPage/>}/>
                         </Route>
 
 

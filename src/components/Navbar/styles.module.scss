@@ -8,6 +8,10 @@
   font-weight: 700;
   //background-color: white;
   //border-right: 1px solid #e7e1e1;;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .items {
@@ -15,5 +19,8 @@
   align-items: center;
   img {
     width: 50px;
+  }
+  div {
+    text-decoration: none;
   }
 }

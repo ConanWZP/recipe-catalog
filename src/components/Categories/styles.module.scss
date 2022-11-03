@@ -1,0 +1,26 @@
+.categoryBlockWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.categoryBlock {
+  width: 190px;
+  text-align: center;
+  margin-bottom: 65px;
+
+  &__image {
+    width: 90%;
+
+  }
+}
+
+
+
+.categoryBlock__title {
+
+  font-size: 20px;
+  font-weight: 900;
+  //letter-spacing: 1%;
+  margin-bottom: 20px;
+}
+
