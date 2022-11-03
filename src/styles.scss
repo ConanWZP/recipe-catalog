@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  outline: none;
+
+}
+
+#detach-button-host {
+  display: none !important;
+}
+
+.full-screen {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &__body {
+    background-color: rgba(0, 0, 0, 0.288);
+    padding: 50px 15px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    //*position: absolute;
+    //*top: 10vh;
+    font-size: 72px;
+    letter-spacing: 20px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: rgba(64, 88, 226, 0.753);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.699);
+  }
+
+  &__text {
+    //*position: absolute;
+    //*top: 20vh;
+    font-size: 32px;
+    letter-spacing: 15px;
+    color: rgba(64, 226, 204, 0.753);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.699);
+  }
+
+  &__video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@keyframes fade-in {
+   0% {
+     opacity: 0;
+     transform: translateX(-400px);
+   }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+@keyframes fade-out {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+
+  }
+  100% {
+
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
+.wrapper {
+  //width: calc(100vw - 100px);
+  height: 100%;
+  background: -webkit-linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
+  background: -moz-linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
+  background: linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
+  //background-color: #fff;
+  margin: 0 auto;
+  //border-radius: 20px;
+  //box-shadow: ;
+  //max-width: 1400px;
+  //overflow: hidden;
+
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.contentContainer {
+  padding: 20px 40px 30px 20px;
+  margin-top: 126px;
+}
+
+.container {
+  width: 1400px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  padding-top: 150px;
+}

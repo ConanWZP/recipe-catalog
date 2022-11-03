@@ -1,15 +1,19 @@
 
-.headerWrapper {
+.navbarWrapper {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  flex-direction: column;
   padding: 20px;
   font-size: 32px;
   font-weight: 700;
-  background-color: #61dafb;
+  //background-color: white;
+  //border-right: 1px solid #e7e1e1;;
+}
 
-  input {
-    padding: 10px;
-    border-radius: 20px;
-    width: 280px;
+.items {
+  display: flex;
+  align-items: center;
+  img {
+    width: 50px;
   }
 }

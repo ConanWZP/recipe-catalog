@@ -1,21 +1,23 @@
 import React, {FC} from 'react';
-import Header from "../components/Header";
-import {Outlet, Route, Routes} from "react-router-dom";
-import Home from "../pages/Home";
-import PizzaInfo from "../pages/PizzaInfo";
-import Cart from "../pages/Cart";
-import NotFound from "../pages/NotFound";
+import Header from "../components/Header/Header";
+import {Outlet} from "react-router-dom";
+import Navbar from "../components/Navbar/Navbar";
+
 
 const LayoutForOutlet: FC = () => {
     return (
-        <div className="wrapper">
-            <Header/>
-            <div className="content">
+        <div className={'wrapper'}>
+            <div className={'main'}>
+                <Header/>
 
-                    <Outlet />
+                <div className={'container'}>
+                    <div className={'content'}>
+                        <Navbar/>
+                        <Outlet/>
+                    </div>
+                </div>
 
             </div>
-
         </div>
     );
 };

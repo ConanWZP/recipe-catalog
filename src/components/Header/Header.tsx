@@ -1,15 +1,21 @@
 import React from 'react';
 import style from './styles.module.scss'
+import logo from '../../assets/img/ice-cream.svg'
 
-const Navbar = () => {
+const Header = () => {
     return (
-        <div className={style.navbarWrapper}>
-            <span>Home</span>
-            <span>Categories</span>
-            <input placeholder={'search'} />
-            <span>1</span>
+
+            <div className={style.headerWrapper}>
+                <div className={'container'}>
+                    <div className={style.logotype}>
+                        <img src={logo}/>
+                        <span>Tasty</span>
+                    </div>
+
+            </div>
+
         </div>
     );
 };
 
-export default Navbar;
+export default Header;
