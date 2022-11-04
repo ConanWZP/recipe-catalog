@@ -17,11 +17,14 @@
   z-index: 2;
   height: 126px;
   //background-color: #f6f4f0;
-  background: -webkit-linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
+  /*background: -webkit-linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
   background: -moz-linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
-  background: linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);
+  background: linear-gradient(135deg, rgb(228, 244, 229), rgb(155, 203, 204) 96%);*/
   //max-width: 1400px;
 
+  background: -webkit-linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
+  background: -moz-linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
+  background: linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
 
 
 

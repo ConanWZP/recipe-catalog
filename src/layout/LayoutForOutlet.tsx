@@ -8,6 +8,7 @@ const LayoutForOutlet: FC = () => {
     return (
         <div className={'wrapper'}>
             <div className={'main'}>
+
                 <Header/>
 
                 <div className={'container'}>

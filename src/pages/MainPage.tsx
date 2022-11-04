@@ -21,10 +21,8 @@ const MainPage = () => {
                         <h2>{obj.title}</h2>
                         <img src={obj.image}/>
                     </div>
-
                 ))
             }
-
         </div>
     );
 };

@@ -14,15 +14,12 @@ const CategoriesPage = () => {
     }, [])
 
     return (
-        <div>
             <div className={'categoriesPage__items'}>
                 {
                     categoriesList.map((cat: ICategory) =>
-                        <Categories name={cat.name} url={cat.url} />
+                        <Categories key={cat.name} name={cat.name} url={cat.url} />
                     )
                 }
-            </div>
-
            {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, dolorem eligendi excepturi hic ratione totam velit voluptatum! Adipisci aspernatur dolore esse, excepturi mollitia numquam, odit omnis quasi veniam veritatis voluptatem!
 
