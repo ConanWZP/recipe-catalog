@@ -6,7 +6,7 @@ export const instanceRecipes = axios.create({
     //data: '1000',
 
     params: {
-            "apiKey": '6dcdc44c8bee4f2bbef1bdb633143496'
+            "apiKey": '215c148e5b964cc884199c1bd0b79e5a'
     },
   //  headers: {
  //       "x-api-key": '6dcdc44c8bee4f2bbef1bdb633143496'

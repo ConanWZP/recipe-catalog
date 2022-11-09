@@ -18,8 +18,11 @@ export type RandomType = {
 }
 
 export type ExtraRandom = {
-    recipes: IRandom[],
-    loading: boolean
+   // recipes: IRandom[],
+    recipes: any
+    loading: boolean,
+    currentPage: number,
+    extraSubArray: any[]
 }
 
 const initialState: ExtraRandom = {
@@ -29,8 +32,11 @@ const initialState: ExtraRandom = {
         readyInMinutes: 0,
         image: ''
     }*/
-    recipes: [],
-    loading: true
+   // recipes: [],
+    recipes: {},
+    loading: true,
+    currentPage: 1,
+    extraSubArray: []
 }
 
 export const getRandom = createAsyncThunk(
@@ -38,8 +44,13 @@ export const getRandom = createAsyncThunk(
     async (_, thunkAPI) => {
         //const {limit, search, order, category, sortBy, currentPage} = params
        // thunkAPI.dispatch(setLoading(true))
-        const response = await instanceRecipes.get<RandomType>(`random`)
-        thunkAPI.dispatch(setRandom(response.data.recipes)) // позволяет не использовать строчку в [takePizzas.fulfilled.type], а именно state.pizzas = action.payload.items
+        thunkAPI.dispatch(clearExtraSubArray([]))
+        thunkAPI.dispatch(setCurrentPage(1))
+     //   const response = await instanceRecipes.get<RandomType>(`random`)
+        const response = await instanceRecipes.get<RandomType>(`324694/information`)
+        thunkAPI.dispatch(setRandom(response.data))
+        //thunkAPI.dispatch(setRandom(response.data.recipes)) // позволяет не использовать строчку в [takePizzas.fulfilled.type], а именно state.pizzas = action.payload.items
+
         //const pages = Math.ceil(getObj.data.count/limit)
         // thunkAPI.dispatch(setTotalPages(pages))
       //  thunkAPI.dispatch(setLoading(false))
@@ -58,6 +69,15 @@ const randomSlice = createSlice({
         },
         setLoading(state, action: PayloadAction<boolean>) {
             state.loading = action.payload
+        },
+        setCurrentPage(state, action: PayloadAction<number>) {
+            state.currentPage = action.payload
+        },
+        clearExtraSubArray(state, action: PayloadAction<any[]>) {
+            state.extraSubArray = action.payload
+        },
+        setExtraSubArray(state, action: PayloadAction<any[]>) {
+            state.extraSubArray.push(action.payload)
         }
     },
     extraReducers: {
@@ -65,6 +85,6 @@ const randomSlice = createSlice({
     }
 })
 
-export const { setRandom, setLoading } = randomSlice.actions
+export const { setRandom, setLoading, setCurrentPage, setExtraSubArray, clearExtraSubArray } = randomSlice.actions
 
 export default randomSlice.reducer

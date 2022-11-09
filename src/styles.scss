@@ -158,9 +158,11 @@
   flex-direction: column;
   margin: 0 auto;
   align-items: center;
+  max-width: 1100px;
+  //padding: 0 100px;
 }
 
-.button {
+.buttonMain {
   width: 250px;
   height: 100px;
   //background: #eaeabf;
@@ -186,7 +188,8 @@
     &:hover {
       opacity: 0.9;
       transform: translateY(-10px);
-      background-color: rgb(86, 181, 184);
+     // background-color: rgb(86, 181, 184);
+      background-color: white;
       color: black;
       box-shadow: -6px -6px 10px rgba(0, 0, 0, 0.8),
       6px 6px 10px rgba(0, 0, 0, 0.2);
@@ -196,7 +199,8 @@
       box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
       inset 8px 8px 16px rgba(0, 0, 0, 0.6);
 
-      color: #79e3b6;
+     // color: #79e3b6;
+      color: #1e1c1c;
     }
   }
   &:nth-child(2) {
@@ -217,3 +221,5 @@
   }
 }
 
+@import "styles/all";
+@import 'styles/normalize';

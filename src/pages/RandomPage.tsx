@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
-import {getRandom, setLoading} from "../redux/reducers/randomSlice";
+import {getRandom, setExtraSubArray, setLoading} from "../redux/reducers/randomSlice";
 import DishInfo from "../components/DishInfo/DishInfo";
 
 const RandomPage = () => {
@@ -10,20 +10,24 @@ const RandomPage = () => {
 
     const onClickRandom = async () => {
         dispatch(setLoading(true))
-     await   dispatch(getRandom())
+       await dispatch(getRandom())
         dispatch(setLoading(false))
        // console.log(recipes[0].title)
     }
 
+   /* console.log(recipes)
+    console.log((recipes.length > 0))*/
+
     return (
         <div className={'randomPageBlock'}>
            {/* <button onClick={onClickRandom}>Get random recipe</button>*/}
-            <div className="button" onClick={onClickRandom}><span>Get random recipe</span></div>
+            <div className="buttonMain" onClick={onClickRandom}><span>Get random recipe</span></div>
             {
-                loading ?
+                loading && !(recipes.length > 0) ?
                     <div style={{fontSize: 40}}>Loading.....</div>
                     :
-                    <DishInfo dishObject={recipes[0]} />
+                    /*<DishInfo dishObject={recipes[0]} />*/
+                    <DishInfo dishObject={recipes} />
 
             }
         </div>

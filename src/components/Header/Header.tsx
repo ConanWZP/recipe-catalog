@@ -9,12 +9,14 @@ const Header = () => {
         <div className={style.headerWrapper}>
 
             <div className='container container--header'>
-                <NavLink to={'/'}>
-                    <div className={style.logotype}>
+
+                <div className={style.logotype}>
+                    <NavLink to={'/'}>
                         <img src={logo}/>
                         <span>Tasty</span>
-                    </div>
-                </NavLink>
+                    </NavLink>
+                </div>
+
             </div>
 
 
