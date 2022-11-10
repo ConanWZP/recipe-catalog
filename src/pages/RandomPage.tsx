@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
 import {getRandom, setExtraSubArray, setLoading} from "../redux/reducers/randomSlice";
 import DishInfo from "../components/DishInfo/DishInfo";
+import DishInfoHoc from "../components/DishInfo/DishInfoHoc";
 
 const RandomPage = () => {
     const {recipes, loading} = useAppSelector(state => state.random)
@@ -26,8 +27,8 @@ const RandomPage = () => {
                 loading && !(recipes.length > 0) ?
                     <div style={{fontSize: 40}}>Loading.....</div>
                     :
-                    /*<DishInfo dishObject={recipes[0]} />*/
-                    <DishInfo dishObject={recipes} />
+                    <DishInfoHoc dishObject={recipes[0]} />
+                    // <DishInfo dishObject={recipes[0]} />
 
             }
         </div>

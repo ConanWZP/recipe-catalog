@@ -18,8 +18,8 @@ export type RandomType = {
 }
 
 export type ExtraRandom = {
-   // recipes: IRandom[],
-    recipes: any
+    recipes: IRandom[],
+  //  recipes: any
     loading: boolean,
     currentPage: number,
     extraSubArray: any[]
@@ -32,8 +32,8 @@ const initialState: ExtraRandom = {
         readyInMinutes: 0,
         image: ''
     }*/
-   // recipes: [],
-    recipes: {},
+    recipes: [],
+  //  recipes: {},
     loading: true,
     currentPage: 1,
     extraSubArray: []
@@ -46,10 +46,10 @@ export const getRandom = createAsyncThunk(
        // thunkAPI.dispatch(setLoading(true))
         thunkAPI.dispatch(clearExtraSubArray([]))
         thunkAPI.dispatch(setCurrentPage(1))
-     //   const response = await instanceRecipes.get<RandomType>(`random`)
-        const response = await instanceRecipes.get<RandomType>(`324694/information`)
-        thunkAPI.dispatch(setRandom(response.data))
-        //thunkAPI.dispatch(setRandom(response.data.recipes)) // позволяет не использовать строчку в [takePizzas.fulfilled.type], а именно state.pizzas = action.payload.items
+        const response = await instanceRecipes.get<RandomType>(`random`)
+     //   const response = await instanceRecipes.get<RandomType>(`324694/information`)
+      //  thunkAPI.dispatch(setRandom(response.data))
+        thunkAPI.dispatch(setRandom(response.data.recipes)) // позволяет не использовать строчку в [takePizzas.fulfilled.type], а именно state.pizzas = action.payload.items
 
         //const pages = Math.ceil(getObj.data.count/limit)
         // thunkAPI.dispatch(setTotalPages(pages))

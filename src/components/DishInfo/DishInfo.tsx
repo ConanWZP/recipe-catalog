@@ -3,19 +3,20 @@ import RecipeStep from './RecipeStep/RecipeStep';
 import styles from './styles.module.scss'
 import Pagination from "../Pagination/Pagination";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
-import {setExtraSubArray, setLoading} from "../../redux/reducers/randomSlice";
+import {clearExtraSubArray, setExtraSubArray, setLoading} from "../../redux/reducers/randomSlice";
 import {Simulate} from "react-dom/test-utils";
 import load = Simulate.load;
+import {useParams} from "react-router-dom";
+
 
 export interface DishInfoProps {
-    dishObject: {
-        title: string,
-        image: string,
-        analyzedInstructions: any[]
-    }
+    title: string,
+    image: string,
+    analyzedInstructions: any[]
 }
 
-const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
+const DishInfo:FC<DishInfoProps> = ({title, image, analyzedInstructions}) => {
+    const {id} = useParams()
     // console.log(dishObject)
     // console.log(dishObject.image)
     /* if (!dishObject) {
@@ -41,9 +42,9 @@ const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
     const allRecipeStep = async () => {
 
         setFlag(true)
-        console.log(dishObject.analyzedInstructions)
-       if (dishObject.analyzedInstructions.length > 0) {
-            dishObject.analyzedInstructions.map((stage) => {
+        console.log(analyzedInstructions.length)
+       if (analyzedInstructions.length > 0) {
+           analyzedInstructions.map((stage) => {
                     //a.push(stage.steps)
                     // console.log(stage.steps.concat(stage.steps))
                     if (stage.steps.length > 0) {
@@ -71,6 +72,9 @@ const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
     }
 
 
+    useEffect(() => {
+        dispatch(clearExtraSubArray([]))
+    }, [])
 
     useEffect( () => {
         //dispatch(setLoading(true))
@@ -82,7 +86,7 @@ const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
        // let i = currentPage - 1
       //  console.log(newSubArr[Number(i)])
 
-    }, [dishObject.analyzedInstructions])
+    }, [analyzedInstructions])
 
 
     /*if (loading) {
@@ -91,9 +95,9 @@ const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
         )
     }*/
 
-    if (!dishObject) {
-        return <div>Something was wrong</div>
-    }
+                                                                             //   if (!dishObject) {
+                                                                             //       return <div>Something was wrong</div>
+                                                                              //  }
 
     if (!(extraSubArray.length > 0)) {
         return <div>Click new recipe</div>
@@ -105,20 +109,20 @@ const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
     console.log(stages)
 
   // const [count, setCount] = useState<number>(0)
-    let count = 1
+  // let count = 1
     /*const changeCount = () => {
         setCount(count+1)
     }*/
-
-    let isName = dishObject.analyzedInstructions[count].name ? dishObject.analyzedInstructions[count].name : '';
-    console.log(dishObject.analyzedInstructions[count])
-    console.log(isName)
+  //  console.log(dishObject.analyzedInstructions[count])
+    //let isName = dishObject.analyzedInstructions[count].name ? dishObject.analyzedInstructions[count].name : '';
+    //console.log(dishObject.analyzedInstructions[count])
+   // console.log(isName)
     console.log(extraSubArray[currentPage-1])
 
     return (
         <div className={styles.dishWrapper}>
-            <div className={styles.mainTitle}>{dishObject.title}</div>
-            <img className={styles.mainImage} src={dishObject.image}/>
+            <div className={styles.mainTitle}>{title}</div>
+            <img className={styles.mainImage} src={image}/>
             {/*<h2>Recipe</h2>*/}
             <div className={styles.recipeBlock}>
                 {/*{(dishObject.analyzedInstructions.length > 0 && dishObject.analyzedInstructions[0].steps.length >0) ?
@@ -153,7 +157,7 @@ const DishInfo: FC<DishInfoProps> = ({dishObject}) => {
                 { (!flag && extraSubArray.length > 0) ?
                     extraSubArray[currentPage-1].map((step: any, index: number) =>
                         <div key={index}>
-                            {step.number === 1 && <div style={{fontSize: 40}}>Stage {dishObject.analyzedInstructions[index]?.name}</div>}
+                            {step.number === 1 && <div style={{fontSize: 40}}>Stage {analyzedInstructions[index]?.name}</div>}
                             <RecipeStep key={String(index) + String(step.number)} step={step}/>
                         </div>
                     )

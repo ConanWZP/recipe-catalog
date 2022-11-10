@@ -9,7 +9,7 @@ const Categories: FC<ICategory> = ({name, url}) => {
 
         <div key={name} className={styles.categoryBlockWrapper}>
             <div className={styles.categoryBlock}>
-                <NavLink to={'/'}>
+                <NavLink to={`/categories/${name}`}>
                     <img src={url} className={styles.categoryBlock__image}/>
                 </NavLink>
                 <div className={styles.categoryBlock__title}>{name}</div>
