@@ -1,0 +1,20 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainTitle {
+  display: inline-block;
+ // margin: 0 auto;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.listItems {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 10px;
+}

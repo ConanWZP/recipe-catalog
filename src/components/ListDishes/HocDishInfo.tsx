@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import DishInfo from "../DishInfo/DishInfo";
-import {useParams} from "react-router-dom";
+import {Link, NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {instanceRecipes} from "../../api/testApi";
 import {clearExtraSubArray, setCurrentPage} from "../../redux/reducers/randomSlice";
 import {useAppDispatch} from "../../hooks/reduxHooks";
+import stylesHoc from './stylesHoc.module.scss'
 
 const HocDishInfo = () => {
 
-    const {id} = useParams()
+    const {id, name} = useParams()
+    console.log(name)
     const [analyzedInstruction, setAnalyzedInstruction] = useState([])
     const [titleRec, setTitleRec] = useState('')
     const [imageRec, setImageRec] = useState('')
     const dispatch = useAppDispatch()
-
+    console.log(useParams())
+    console.log(useLocation())
     console.log(id)
     const recipeById = async () => {
         instanceRecipes.get<any>(`${id}/information`)
@@ -27,19 +30,29 @@ const HocDishInfo = () => {
             })
     }
 
-
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(setCurrentPage(1))
         recipeById()
     }, [])
 
+    const BackToCat = () => {
+        navigate(-1)
+    }
+
     if (!(analyzedInstruction?.length > 0)) {
-        return <div>Грузимся</div>
+        return (
+            <div className={stylesHoc.hocWrapper}>
+                <div>There isn't recipe <i>😕</i></div>
+                <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name}</span></button>
+            </div>
+        )
     }
 
     return (
-        <div>
+        <div className={stylesHoc.hocWrapper}>
+            <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name}</span></button>
             <DishInfo analyzedInstructions={analyzedInstruction} title={titleRec} image={imageRec} />
         </div>
 
