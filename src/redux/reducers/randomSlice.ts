@@ -45,7 +45,7 @@ export const getRandom = createAsyncThunk(
         //const {limit, search, order, category, sortBy, currentPage} = params
        // thunkAPI.dispatch(setLoading(true))
         thunkAPI.dispatch(clearExtraSubArray([]))
-        thunkAPI.dispatch(setCurrentPage(1))
+        thunkAPI.dispatch(setCurrentPageRand(1))
         const response = await instanceRecipes.get<RandomType>(`random`)
      //   const response = await instanceRecipes.get<RandomType>(`324694/information`)
       //  thunkAPI.dispatch(setRandom(response.data))
@@ -70,7 +70,7 @@ const randomSlice = createSlice({
         setLoading(state, action: PayloadAction<boolean>) {
             state.loading = action.payload
         },
-        setCurrentPage(state, action: PayloadAction<number>) {
+        setCurrentPageRand(state, action: PayloadAction<number>) {
             state.currentPage = action.payload
         },
         clearExtraSubArray(state, action: PayloadAction<any[]>) {
@@ -85,6 +85,6 @@ const randomSlice = createSlice({
     }
 })
 
-export const { setRandom, setLoading, setCurrentPage, setExtraSubArray, clearExtraSubArray } = randomSlice.actions
+export const { setRandom, setLoading, setCurrentPageRand, setExtraSubArray, clearExtraSubArray } = randomSlice.actions
 
 export default randomSlice.reducer

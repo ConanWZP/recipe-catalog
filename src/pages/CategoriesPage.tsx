@@ -3,6 +3,7 @@ import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
 import {getCategories} from "../redux/reducers/caregoriesSlice";
 import {ICategory} from "../types/types";
 import Categories from "../components/Categories/Categories";
+import {setCurrentPageType, setDishesObj, setTotalPages} from "../redux/reducers/typeSlice";
 
 const CategoriesPage = () => {
 
@@ -11,6 +12,13 @@ const CategoriesPage = () => {
 
     useEffect(() => {
         dispatch(getCategories())
+        dispatch(setCurrentPageType(1))
+        dispatch(setDishesObj({
+            results: [],
+            offset: 0,
+            number: 8,
+            totalResults: 0
+        }))
     }, [])
 
     return (

@@ -3,7 +3,7 @@ import DishInfo from "../DishInfo/DishInfo";
 import {Link, NavLink, useLocation, useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
 import {instanceRecipes} from "../../api/testApi";
-import {clearExtraSubArray, setCurrentPage} from "../../redux/reducers/randomSlice";
+import {clearExtraSubArray, setCurrentPageRand} from "../../redux/reducers/randomSlice";
 import {useAppDispatch} from "../../hooks/reduxHooks";
 import stylesHoc from './stylesHoc.module.scss'
 
@@ -33,7 +33,7 @@ const HocDishInfo = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        dispatch(setCurrentPage(1))
+        dispatch(setCurrentPageRand(1))
         recipeById()
     }, [])
 
@@ -44,7 +44,7 @@ const HocDishInfo = () => {
     if (!(analyzedInstruction?.length > 0)) {
         return (
             <div className={stylesHoc.hocWrapper}>
-                <div>There isn't recipe <i>😕</i></div>
+                <div className={stylesHoc.hocWrapper__error}>There isn't recipe <i>😕</i></div>
                 <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name}</span></button>
             </div>
         )

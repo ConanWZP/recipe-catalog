@@ -3,10 +3,9 @@ import RecipeStep from './RecipeStep/RecipeStep';
 import styles from './styles.module.scss'
 import Pagination from "../Pagination/Pagination";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
-import {clearExtraSubArray, setExtraSubArray, setLoading} from "../../redux/reducers/randomSlice";
-import {Simulate} from "react-dom/test-utils";
-import load = Simulate.load;
+import {clearExtraSubArray, setExtraSubArray, setLoading, setCurrentPageRand} from "../../redux/reducers/randomSlice";
 import {useParams} from "react-router-dom";
+
 
 
 export interface DishInfoProps {
@@ -165,7 +164,7 @@ const DishInfo:FC<DishInfoProps> = ({title, image, analyzedInstructions}) => {
                 }
 
 
-                <Pagination totalPages={Math.ceil(extraSubArray.length/3)}/>
+                <Pagination totalPages={Math.ceil(extraSubArray.length/3)} currentPage={currentPage} dependency={extraSubArray} changePage={setCurrentPageRand}/>
 
             </div>
 

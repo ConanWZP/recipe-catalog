@@ -2,28 +2,37 @@ import React, {FC, useEffect, useState} from 'react';
 import ReactPaginate from 'react-paginate';
 import styles from './Pagination.module.scss'
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
-import { setCurrentPage } from '../../redux/reducers/randomSlice';
+
 
 interface PaginationProps {
-    totalPages: number
+    totalPages: number,
+    currentPage: number,
+    dependency?: any,
+    changePage: (e: number) => any
 }
 
-const Pagination:FC<PaginationProps> = ({totalPages}) => {
+const Pagination:FC<PaginationProps> = ({totalPages, currentPage, dependency, changePage}) => {
 
     const dispatch = useAppDispatch()
-    const {currentPage, extraSubArray} = useAppSelector(state => state.random)
+   // const {extraSubArray} = useAppSelector(state => state.random)
     const [pages, setPages] = useState(1)
 
     useEffect(() => {
-        setPages(Math.ceil(extraSubArray.length))
-    }, [extraSubArray])
+        if (dependency && dependency.length > 0) {
+            setPages(Math.ceil(dependency.length))
+        } else {
+            setPages(totalPages)
+        }
+
+
+    }, [dependency, totalPages])
 
     return (
         <div>
             <ReactPaginate className={styles.root}
                            breakLabel="..."
                            nextLabel=">"
-                           onPageChange={(e) => dispatch(setCurrentPage(e.selected + 1))}
+                           onPageChange={(e) => dispatch(changePage(e.selected + 1))}
                            pageRangeDisplayed={5}
                            pageCount={pages}
                            forcePage={currentPage-1}

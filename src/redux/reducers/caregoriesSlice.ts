@@ -35,6 +35,7 @@ const categoriesSlice = createSlice({
     reducers: {
         setCategories(state, action: PayloadAction<ICategoriesSlice[]>) {
             state.categoriesList = action.payload
+
         }
     },
     extraReducers: {

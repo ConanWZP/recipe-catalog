@@ -1,7 +1,7 @@
 .item {
-  margin-bottom: 30px;
+  margin-bottom: 45px;
   width: 250px;
-  max-height: 260px;
+  height: 280px;
   padding: 10px;
   //background-color: white;
   border-radius: 20px;
@@ -29,7 +29,7 @@
 
   &__image {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 22px;
     border-radius: 10px;
    // margin-top: 15px;
     transition: all ease-in-out .4s;
@@ -38,11 +38,11 @@
 }
 
 .item:hover .item__image{
-  transform: scale(1.15) rotate(-2deg);
+  transform: scale(1.18) rotate(-2deg);
 }
 
 .mainTitle {
   text-align: center;
   font-size: 20px;
-
+  margin-bottom: 5px;
 }

@@ -10,19 +10,20 @@ const MainPage = () => {
 
 
     useEffect(() => {
-        dispatch(takeRecipes())
+     //   dispatch(takeRecipes())
     }, [])
 
     return (
         <div className={'contentContainer'}>
-            {
+            Main page
+            {/*{
                 results.map(obj => (
                     <div key={obj.id}>
                         <h2>{obj.title}</h2>
                         <img src={obj.image}/>
                     </div>
                 ))
-            }
+            }*/}
         </div>
     );
 };
