@@ -3,12 +3,18 @@ import testSlice from "./reducers/testSlice"
 import categoriesSlice from './reducers/caregoriesSlice'
 import randomSlice from "./reducers/randomSlice"
 import typeSlice from "./reducers/typeSlice"
+import ingredientsSlice from "./reducers/ingredientsSlice"
+import ingredientsStoreSlice from "./reducers/ingredientsStoreSlice"
+
+
 
 const  rootReduce = combineReducers({
     testSlice: testSlice,
     categories: categoriesSlice,
     random: randomSlice,
-    typeDish: typeSlice
+    typeDish: typeSlice,
+    ingredients: ingredientsSlice,
+    ingredientsStore: ingredientsStoreSlice
 })
 
 export const store = configureStore({

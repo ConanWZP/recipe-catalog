@@ -26,3 +26,12 @@ export const instanceCategories = axios.create({
     //   },
 
 });
+
+
+export const instanceIngredients = axios.create({
+    baseURL: 'https://api.spoonacular.com/food/ingredients/',
+    params: {
+        "apiKey": '215c148e5b964cc884199c1bd0b79e5a'
+        /*  "apiKey": '6dcdc44c8bee4f2bbef1bdb633143496'*/
+    }
+})

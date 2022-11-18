@@ -12,6 +12,7 @@ import RandomPage from './pages/RandomPage';
 import ListDishes from "./components/ListDishes/ListDishes";
 import DishInfo from "./components/DishInfo/DishInfo";
 import HocDishInfo from "./components/ListDishes/HocDishInfo";
+import SearchIngredients from "./pages/SearchIngredients";
 
 
 
@@ -34,6 +35,7 @@ const App = () => {
                             <Route path={'random'} element={<RandomPage/>}/>
                             <Route path={'categories/:name'} element={<ListDishes/>} />
                             <Route path={'categories/:name/:id'} element={<HocDishInfo/>} />
+                            <Route path={'searchIngredients'} element={<SearchIngredients />} />
                         </Route>
 
 

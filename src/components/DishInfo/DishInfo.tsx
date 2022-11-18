@@ -5,6 +5,7 @@ import Pagination from "../Pagination/Pagination";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {clearExtraSubArray, setExtraSubArray, setLoading, setCurrentPageRand} from "../../redux/reducers/randomSlice";
 import {useParams} from "react-router-dom";
+import loader from './../../assets/gif/835.gif'
 
 
 
@@ -99,13 +100,13 @@ const DishInfo:FC<DishInfoProps> = ({title, image, analyzedInstructions}) => {
                                                                               //  }
 
     if (!(extraSubArray.length > 0)) {
-        return <div>Click new recipe</div>
+        return <div><img src={loader} /></div>
     }
 
-    let stages = extraSubArray[currentPage-1].filter((obj: any) => {
+   /* let stages = extraSubArray[currentPage-1].filter((obj: any) => {
         return obj.number === 1;
     })
-    console.log(stages)
+    console.log(stages)*/
 
   // const [count, setCount] = useState<number>(0)
   // let count = 1

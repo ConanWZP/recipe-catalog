@@ -12,7 +12,6 @@ export interface DishInfoProps {
 const DishInfoHoc:FC<DishInfoProps> = ({dishObject}) => {
     return (
         <div>
-
             <DishInfo title={dishObject.title} image={dishObject.image} analyzedInstructions={dishObject.analyzedInstructions} />
         </div>
     );

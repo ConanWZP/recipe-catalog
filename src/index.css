@@ -13,9 +13,12 @@ body {
  /* overflow: hidden;*/
 
 
-  background: -webkit-linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
+ /* background: -webkit-linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
   background: -moz-linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
-  background: linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);
+  background: linear-gradient(90deg, rgb(152, 207, 195) 10%, rgb(86, 181, 184) 78%);*/
+  background: -webkit-linear-gradient(90deg, rgb(234, 234, 234), rgb(222, 227, 227));
+  background: -moz-linear-gradient(90deg, rgb(234, 234, 234), rgb(222, 227, 227));
+  background: linear-gradient(90deg, rgb(234, 234, 234), rgb(222, 227, 227));
  /* background: rgba(211, 211, 210, 0.83);*/
 
 }

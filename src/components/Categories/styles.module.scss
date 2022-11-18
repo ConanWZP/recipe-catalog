@@ -15,9 +15,13 @@
   -webkit-box-shadow: 0px 33px 35px -4px rgba(34, 60, 80, 0.56);
   -moz-box-shadow: 0px 33px 35px -4px rgba(34, 60, 80, 0.56);
   box-shadow: 0px 33px 35px -4px rgba(34, 60, 80, 0.56);
-  background: -webkit-linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));
+  /*background: -webkit-linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));
   background: -moz-linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));
-  background: linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));
+  background: linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));*/
+  /*background: -webkit-linear-gradient(90deg, rgb(234, 234, 234), rgb(222, 227, 227));
+  background: -moz-linear-gradient(90deg, rgb(234, 234, 234), rgb(222, 227, 227));
+  background: linear-gradient(90deg, rgb(234, 234, 234), rgb(222, 227, 227));*/
+  background-color: rgba(164, 164, 164, 0.84);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 
@@ -47,6 +51,7 @@
 .categoryBlock__title {
   font-size: 28px;
   font-weight: 900;
+
   //letter-spacing: 1%;
   //padding-bottom: 25px;
 }
