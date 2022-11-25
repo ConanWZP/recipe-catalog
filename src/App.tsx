@@ -12,7 +12,11 @@ import RandomPage from './pages/RandomPage';
 import ListDishes from "./components/ListDishes/ListDishes";
 import DishInfo from "./components/DishInfo/DishInfo";
 import HocDishInfo from "./components/ListDishes/HocDishInfo";
-import SearchIngredients from "./pages/SearchIngredients";
+import SearchIngredientsPage from './pages/SearchIngredientsPage';
+import IngredientStorePage from "./pages/IngredientStorePage";
+import LayoutForStore from "./layout/LayoutForStore";
+import RecipesByIngredients from "./pages/RecipesByIngredients";
+
 
 
 
@@ -35,7 +39,12 @@ const App = () => {
                             <Route path={'random'} element={<RandomPage/>}/>
                             <Route path={'categories/:name'} element={<ListDishes/>} />
                             <Route path={'categories/:name/:id'} element={<HocDishInfo/>} />
-                            <Route path={'searchIngredients'} element={<SearchIngredients />} />
+                            <Route path={'searchIngredients'} element={<SearchIngredientsPage />} />
+                            <Route path={'recipesByIngredients'} element={<RecipesByIngredients />} />
+                            <Route path={'recipesByIngredients/:id'} element={<HocDishInfo/>} />
+                        </Route>
+                        <Route path={'/ingredientStore'} element={<LayoutForStore/>}>
+                            <Route path={'/ingredientStore'} element={<IngredientStorePage/>} />
                         </Route>
 
 

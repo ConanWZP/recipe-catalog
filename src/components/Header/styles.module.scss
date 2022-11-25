@@ -59,3 +59,22 @@
 
 
 }
+
+.items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item {
+  font-size: 40px;
+  margin-right: 15px;
+}
+
+
+
+.number {
+  padding-left: 15px;
+  color: white !important;
+}
+

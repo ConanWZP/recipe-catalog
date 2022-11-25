@@ -144,12 +144,15 @@
  // @media (max-width: 1250px) {
 //    padding-left: 30px;
  // }
-  @media (max-width: 1250px) {
+  @media (max-width: 1290px) {
     padding-left: 40px;
    // grid-template-columns: repeat(4, 1fr);
   }
-  @media (max-width: 1100px) {
+  @media (max-width: 1230px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 1040px) {
+    padding-left: 15px;
   }
 }
 

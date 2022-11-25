@@ -26,3 +26,29 @@
     text-decoration: none;
   }
 }
+
+@media (max-width: 1040px) {
+  .navbarWrapper {
+    padding: 20px 10px 20px 10px;
+    font-size: 26px;
+    width: 235px;
+  }
+  .items {
+    img {
+      width: 40px;
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .navbarWrapper {
+    padding: 20px 8px 20px 8px;
+    font-size: 24px;
+    width: 215px;
+  }
+  .items {
+    img {
+      width: 35px;
+    }
+  }
+}

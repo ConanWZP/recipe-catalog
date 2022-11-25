@@ -10,7 +10,7 @@ import stylesHoc from './stylesHoc.module.scss'
 const HocDishInfo = () => {
 
     const {id, name} = useParams()
-    console.log(name)
+   // console.log(name)
     const [analyzedInstruction, setAnalyzedInstruction] = useState([])
     const [titleRec, setTitleRec] = useState('')
     const [imageRec, setImageRec] = useState('')
@@ -45,14 +45,14 @@ const HocDishInfo = () => {
         return (
             <div className={stylesHoc.hocWrapper}>
                 <div className={stylesHoc.hocWrapper__error}>There isn't recipe <i>😕</i></div>
-                <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name}</span></button>
+                <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name ? name : 'recipes'}</span></button>
             </div>
         )
     }
 
     return (
         <div className={stylesHoc.hocWrapper}>
-            <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name}</span></button>
+            <button onClick={() => BackToCat()} className={`button button--outline button--add ${stylesHoc.buttonBack}`}><span>Back to {name ? name : 'recipes'}</span></button>
             <DishInfo analyzedInstructions={analyzedInstruction} title={titleRec} image={imageRec} />
         </div>
 

@@ -12,7 +12,7 @@ interface PaginationProps {
 }
 
 const Pagination:FC<PaginationProps> = ({totalPages, currentPage, dependency, changePage}) => {
-
+    console.log(totalPages)
     const dispatch = useAppDispatch()
    // const {extraSubArray} = useAppSelector(state => state.random)
     const [pages, setPages] = useState(1)

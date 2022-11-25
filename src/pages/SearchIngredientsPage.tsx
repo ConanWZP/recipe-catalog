@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import IngredientsList from '../components/Ingredients/IngredientsList';
 import styles from './styles/search.module.scss'
 import Pagination from "../components/Pagination/Pagination";
-import { useDebounce } from '../hooks/useDebounce';
+import {useDebounce} from '../hooks/useDebounce';
 import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
 import {
     clearIngredientList,
@@ -15,17 +15,22 @@ import {
 } from "../redux/reducers/ingredientsSlice";
 import {clearExtraSubArray, setExtraSubArray} from "../redux/reducers/randomSlice";
 import RecipeStep from "../components/DishInfo/RecipeStep/RecipeStep";
+import exp from "constants";
 
-const SearchIngredients = () => {
-
+const SearchIngredientsPage = () => {
 
 
     const inputSearch = useRef<HTMLInputElement>(null)
     const dispatch = useAppDispatch()
-    const {ingredients, totalCountIngredients, ingredientList, currentPage, search} = useAppSelector(state => state.ingredients)
+    const {
+        ingredients,
+        totalCountIngredients,
+        ingredientList,
+        currentPage,
+        search
+    } = useAppSelector(state => state.ingredients)
 
     const [value, setValue] = useState<string>(search)
-
 
 
     const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,6 +59,7 @@ const SearchIngredients = () => {
     const onClearField = () => {
         setValue('')
         inputSearch.current?.focus()
+        updateSearchValue('')
         dispatch(clearIngredientList([]))
         dispatch(setCurrentPageIngr(1))
         dispatch(setTotalCountIngredients(0))
@@ -62,9 +68,9 @@ const SearchIngredients = () => {
 
     const updateSearchValue = useDebounce((e: string) => {
         dispatch(getIngredientsThunk({e}))
-       // dispatch(setCurrentSearch(e))
-     //   console.log('hello')
-     //   console.log(e)
+        // dispatch(setCurrentSearch(e))
+        //   console.log('hello')
+        //   console.log(e)
     }, 1000)
 
 
@@ -79,15 +85,15 @@ const SearchIngredients = () => {
         console.log(ingredients.length)
         if (ingredients.length > 0) {
             ingredients.map((stage) => {
-                //console.log(stage)
-                a.push(stage)
+                    //console.log(stage)
+                    a.push(stage)
                 }
             )
             let size = 3; //размер подмассива
-            for (let i = 0; i <Math.ceil(a.length/size); i++){
-              //  console.log(a)
+            for (let i = 0; i < Math.ceil(a.length / size); i++) {
+                //  console.log(a)
 
-                subarray[i] = a.slice((i*size), (i*size) + size);
+                subarray[i] = a.slice((i * size), (i * size) + size);
                 await dispatch(setIngredientList(subarray[i]))
             }
             console.log(subarray)
@@ -105,14 +111,14 @@ const SearchIngredients = () => {
         dispatch(clearIngredients())*/
     }, [])
 
-    useEffect( () => {
-      //  dispatch(clearIngredientList([]))
+    useEffect(() => {
+        //  dispatch(clearIngredientList([]))
 
         //dispatch(setLoading(true))
         //dispatch(setCurrentPageIngr(1))
         allRecipeStep()
-       // dispatch(clearIngredientList([]))
-      //  console.log(ingredientList)
+        // dispatch(clearIngredientList([]))
+        //  console.log(ingredientList)
         // dispatch(setLoading(false))
         // console.log(newSubArr)
         //  console.log(currentPage)
@@ -144,9 +150,13 @@ const SearchIngredients = () => {
                            className={styles.input} placeholder={'Search ingredient...'}/>
                     {
                         value &&
-                        <svg onClick={onClearField} className={styles.closeIcon} height="512px" id="Layer_1"  version="1.1"
-                             viewBox="0 0 512 512" width="512px"  xmlns="http://www.w3.org/2000/svg"
-                        ><path d="M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z"/></svg>
+                        <svg onClick={onClearField} className={styles.closeIcon} height="512px" id="Layer_1"
+                             version="1.1"
+                             viewBox="0 0 512 512" width="512px" xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z"/>
+                        </svg>
                     }
 
 
@@ -160,18 +170,25 @@ const SearchIngredients = () => {
                     )
                 }
             </div>*/}
-            <div className={styles.list}>
-                { (!flag  && ingredientList.length > 0) ?
-                    ingredientList[currentPage-1].map((e: any, index: number) =>
-                            <IngredientsList key={e.id} name={e.name} image={e.image} id={e.id}  />
-                    )
-                    : <div>No one stage</div>
-                }
+            {(!flag && ingredientList.length > 0) ?
+                <>
+                    <div className={styles.list}>
 
-            </div>
-            <Pagination currentPage={currentPage} changePage={setCurrentPageIngr} totalPages={Math.ceil(totalCountIngredients/3)}  />
+                        {ingredientList[currentPage - 1].map((e: any, index: number) =>
+                            <IngredientsList key={e.id} name={e.name} image={e.image} id={e.id}/>
+                        )}
+
+
+                    </div>
+                    <Pagination currentPage={currentPage} changePage={setCurrentPageIngr}
+                                totalPages={Math.ceil(totalCountIngredients / 3)}/>
+                </>
+
+                : /*<div>No one stage</div>*/ null
+            }
+
         </div>
     );
 };
 
-export default SearchIngredients;
+export default SearchIngredientsPage;

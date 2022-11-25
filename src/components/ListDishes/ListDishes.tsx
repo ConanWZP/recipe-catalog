@@ -6,6 +6,7 @@ import DishItem from "./DishItem";
 import stylesList from './stylesList.module.scss'
 import Pagination from "../Pagination/Pagination";
 import Skeleton from '../Skeleton/Skeleton';
+import GenericListDishes from "../GenericListDishes/GenericListDishes";
 
 const ListDishes = () => {
 
@@ -39,29 +40,12 @@ const ListDishes = () => {
         return <div>Loading</div>
     }*/
 
-    const skeleton = [...new Array(8)].map((_, index) => <Skeleton key={index}/>)
 
-    const items = dishesObj.results.map(dish =>
-        <DishItem key={dish.id} dish={dish} name={name}/>
-    )
 
     return (
         <div className={stylesList.listContainer}>
-            {status === 'error' ?
-                <div>Ошибка</div>
-                :
-                <div>
-                    <span className={stylesList.mainTitle}>{name ? name[0].toUpperCase() + name.substring(1) : ''}</span>
-                    <div className={stylesList.listItems}>
-                        {status === 'loading' ?
-                            skeleton
-                            :  items
-                        }
-                    </div>
-                </div>
 
-            }
-
+            <GenericListDishes name={name} dishObject={dishesObj} status={status} />
             <Pagination currentPage={currentPage} changePage={setCurrentPageType} totalPages={pages}/>
 
         </div>

@@ -23,11 +23,14 @@ export const ingredientsStoreSlice = createSlice({
         },
         removeItem(state, action: PayloadAction<number>) {
             state.items = state.items.filter(item => item.id !== action.payload)
+        },
+        clearItemStore(state) {
+            state.items = []
         }
     }
 })
 
-export const {addItem, removeItem} = ingredientsStoreSlice.actions
+export const {addItem, removeItem, clearItemStore} = ingredientsStoreSlice.actions
 
 export default ingredientsStoreSlice.reducer
 

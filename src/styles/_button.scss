@@ -18,7 +18,8 @@
 
   &,
   span {
-    color: $orange;
+   // color: $orange;
+    color: white;
   }
 
   i,
@@ -142,16 +143,19 @@
     display: flex;
     align-items: center;
     line-height: 23px;
-    padding: 12px 25px;
+    padding: 8px 30px;
 
     svg {
       margin-right: 8px;
       margin-bottom: 1px;
     }
+    img {
+      width: 45px;
+    }
 
     span {
       font-weight: 600;
-      font-size: 16px;
+      font-size: 22px;
     }
   }
 }

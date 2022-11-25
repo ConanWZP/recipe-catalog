@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import styles from './styles.module.scss'
 import nothing from "../../assets/img/nothing.png";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
@@ -14,8 +14,15 @@ interface IngredientsList {
 const IngredientsList: FC<IngredientsList> = ({name, image, id}) => {
 
     const dispatch = useAppDispatch()
+    const {items} = useAppSelector(state => state.ingredientsStore)
    // const {} = useAppSelector(state => state.ingredientsStore)
     const [inStore, setInStore] = useState(false)
+    useEffect(() => {
+        const findStoreItem = items.find(i => i.id === id)
+        if (findStoreItem) {
+            setInStore(true)
+        }
+    }, [])
 
     const addItemOnClick = () => {
         console.log('add')

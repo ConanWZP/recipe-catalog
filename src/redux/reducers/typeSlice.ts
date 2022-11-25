@@ -51,7 +51,7 @@ export const getDishesByType = createAsyncThunk(
     'type/getDishesByType',
     async (params: IDishesByType, thunkAPI) => {
       //  debugger
-        const {name, numberDishes, offset,} = params
+        const {name, numberDishes, offset} = params
         const response = await instanceRecipes.get<TypeDishesObj>(`complexSearch?type=${name}&number=${numberDishes}&offset=${offset}`)
         thunkAPI.dispatch(setDishesObj(response.data)) // позволяет не использовать строчку в [takePizzas.fulfilled.type], а именно state.pizzas = action.payload.items
         thunkAPI.dispatch(setCurrentType(name))
