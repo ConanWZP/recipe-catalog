@@ -34,7 +34,8 @@ const App = () => {
         <BrowserRouter>
                     <Routes>
                         <Route path={'/'} element={<LayoutForOutlet/>}>
-                            <Route path={''} element={<MainPage/>}/>
+                            {/*<Route path={''} element={<MainPage/>}/>*/}
+                            <Route path={''} element={<CategoriesPage/>}/>
                             <Route path={'categories'} element={<CategoriesPage/>}/>
                             <Route path={'random'} element={<RandomPage/>}/>
                             <Route path={'categories/:name'} element={<ListDishes/>} />

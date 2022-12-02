@@ -16,6 +16,7 @@ import {
 import {clearExtraSubArray, setExtraSubArray} from "../redux/reducers/randomSlice";
 import RecipeStep from "../components/DishInfo/RecipeStep/RecipeStep";
 import exp from "constants";
+import MyInput from "../components/MyInput/MyInput";
 
 const SearchIngredientsPage = () => {
 
@@ -135,7 +136,7 @@ const SearchIngredientsPage = () => {
         <div className={'randomPageBlock'}>
             <div className={styles.searchBlock}>
                 <div className={styles.subtitle}>Enter ingredient</div>
-                <div className={styles.search}>
+                {/*<div className={styles.search}>
                     <svg className={styles.icon}
                          enableBackground="new 0 0 50 50" height="50px" id="Layer_1" version="1.1" viewBox="0 0 50 50"
                          width="50px" xmlns="http://www.w3.org/2000/svg"
@@ -145,10 +146,12 @@ const SearchIngredientsPage = () => {
                                 strokeMiterlimit="10" strokeWidth="2"/>
                         <line fill="none" stroke="#000000" strokeMiterlimit="10" strokeWidth="4" x1="32.229" x2="45.5"
                               y1="32.229" y2="45.5"/>
-                    </svg>
-                    <input ref={inputSearch} value={value} onChange={onChangeValue}
-                           className={styles.input} placeholder={'Search ingredient...'}/>
-                    {
+                    </svg>*/}
+                <MyInput inputSearch={inputSearch} value={value} onChangeValue={onChangeValue}
+                         placeHolder={'Search ingredient...'} onClearField={onClearField}/>
+                {/*<input ref={inputSearch} value={value} onChange={onChangeValue}
+                           className={styles.input} placeholder={'Search ingredient...'}/>*/}
+                {/*{
                         value &&
                         <svg onClick={onClearField} className={styles.closeIcon} height="512px" id="Layer_1"
                              version="1.1"
@@ -160,7 +163,7 @@ const SearchIngredientsPage = () => {
                     }
 
 
-                </div>
+                </div>*/}
             </div>
 
             {/*<div className={styles.list}>

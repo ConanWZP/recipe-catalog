@@ -22,7 +22,8 @@ export interface ITypeSlice {
     currentType: string,
     currentPage: number,
     pages: number,
-    status: StatusEnum
+    status: StatusEnum,
+    query: string
 }
 
 
@@ -37,22 +38,24 @@ const initialState: ITypeSlice = {
     },
     currentPage: 1,
     pages: 0,
-    status: StatusEnum.LOADING
+    status: StatusEnum.LOADING,
+    query: '',
 }
 
 export interface IDishesByType {
     name: string,
     numberDishes: number,
     currentPage: number,
-    offset: number
+    offset: number,
+    query: string
 }
 
 export const getDishesByType = createAsyncThunk(
     'type/getDishesByType',
     async (params: IDishesByType, thunkAPI) => {
       //  debugger
-        const {name, numberDishes, offset} = params
-        const response = await instanceRecipes.get<TypeDishesObj>(`complexSearch?type=${name}&number=${numberDishes}&offset=${offset}`)
+        const {name, numberDishes, offset, query} = params
+        const response = await instanceRecipes.get<TypeDishesObj>(`complexSearch?type=${name}&number=${numberDishes}&offset=${offset}&query=${query ? query : ''}`)
         thunkAPI.dispatch(setDishesObj(response.data)) // позволяет не использовать строчку в [takePizzas.fulfilled.type], а именно state.pizzas = action.payload.items
         thunkAPI.dispatch(setCurrentType(name))
         if (response.data.totalResults > 900) {
@@ -86,6 +89,9 @@ const typeSlice = createSlice({
         setTotalPages(state, action: PayloadAction<number>) {
         //    debugger
             state.pages = action.payload
+        },
+        setQueryValue(state, action: PayloadAction<string>) {
+            state.query = action.payload
         }
     },
     extraReducers: {
@@ -107,6 +113,6 @@ const typeSlice = createSlice({
     }
 })
 
-export const { setDishesObj, setCurrentType, setCurrentPageType, setTotalPages } = typeSlice.actions
+export const { setDishesObj, setCurrentType, setCurrentPageType, setTotalPages, setQueryValue } = typeSlice.actions
 
 export default typeSlice.reducer

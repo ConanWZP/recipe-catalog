@@ -3,7 +3,7 @@ import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
 import GenericListDishes from "../components/GenericListDishes/GenericListDishes";
 import Pagination from "../components/Pagination/Pagination";
 import {getRecipesByIngredients, setCurrentPageSearchByIngr} from '../redux/reducers/searchByIngrSlice';
-import styles from './styles/recipesByIngr.module.scss'
+import stylesList from '../components/ListDishes/stylesList.module.scss'
 
 const RecipesByIngredients = () => {
 
@@ -27,7 +27,7 @@ const RecipesByIngredients = () => {
 
 
     return (
-        <div className={styles.recipesWrapper}>
+        <div className={stylesList.listContainer}>
             <GenericListDishes dishObject={dishesByIngrObj} status={status} />
             <Pagination currentPage={currentPage} changePage={setCurrentPageSearchByIngr} totalPages={totalPages}/>
         </div>

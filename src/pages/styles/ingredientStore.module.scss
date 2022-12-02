@@ -184,8 +184,45 @@
 
 .buttonGap {
   gap: 20px;
+  @media (max-width: 440px) {
+    gap: 5px;
+  }
+
 }
 
 .buttonSize {
   width: 200px !important;
+  @media (max-width: 440px) {
+    width: 47vw !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .buttonSize:last-child {
+    gap: 5px;
+
+      span {
+        font-size: 16px;
+      }
+
+  }
+
+}
+@media (max-width: 400px) {
+  .buttonSize:last-child {
+
+      span {
+        font-size: 14px;
+      }
+
+  }
+}
+@media (max-width: 355px) {
+  .buttonSize:last-child {
+
+      span {
+        font-size: 12px;
+      }
+
+  }
 }

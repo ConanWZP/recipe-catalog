@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import styles from './styles/ingredientStore.module.scss'
 import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
 import {clearItemStore} from '../redux/reducers/ingredientsStoreSlice';
@@ -43,7 +43,7 @@ const IngredientStorePage = () => {
             dispatch(getRecipesByIngredients({replacedStringItemsName, offset , numberItems} as any))
         }
     }
-
+    const navigate = useNavigate()
     return (
         <div className={`${styles.storeWrapper}  ${styles.storeWrapperStore}`}>
             <div className="cart">
@@ -98,7 +98,7 @@ const IngredientStorePage = () => {
                         {/* <span> Сумма заказа: <b>{0} ₽</b> </span>*/}
                     </div>
                     <div className={"cart__bottom-buttons" + ' ' + styles.buttonGap}>
-                        <NavLink to="/searchIngredients"
+                        <a onClick={() => navigate(-1)}
                                  className={`button button--outline button--add go-back-btn` + ' ' + styles.buttonSize}>
                             <svg width="8" height="14" viewBox="0 0 8 14" fill="none"
                                  xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +107,7 @@ const IngredientStorePage = () => {
                             </svg>
 
                             <span>Back</span>
-                        </NavLink>
+                        </a>
                         {
                             visibleModal ?
                                 <NavLink to={'/recipesByIngredients'}>
@@ -116,7 +116,11 @@ const IngredientStorePage = () => {
                                         <span>Combine ingredients for recipes</span>
                                     </div>
                                 </NavLink>
-                                : <div>Choose ingredients</div>
+                                : <NavLink to={'/searchIngredients'}>
+                                    <div className={"button pay-btn" + ' ' + styles.buttonSize}>
+                                        <span>Choose ingredients</span>
+                                    </div>
+                                </NavLink>
 
                         }
 

@@ -7,9 +7,9 @@
   padding: 10px;
   //background-color: white;
   border-radius: 20px;
-  -webkit-box-shadow: 0px 33px 35px -4px rgba(34, 60, 80, 0.56);
-  -moz-box-shadow: 0px 33px 35px -4px rgba(34, 60, 80, 0.56);
-  box-shadow: 0px 33px 35px -4px rgba(34, 60, 80, 0.56);
+  -webkit-box-shadow: 0px 23px 25px -4px rgba(34, 60, 80, 0.56);
+  -moz-box-shadow: 0px 23px 25px -4px rgba(34, 60, 80, 0.56);
+  box-shadow: 0px 23px 25px -4px rgba(34, 60, 80, 0.56);
   /*background: -webkit-linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));
   background: -moz-linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));
   background: linear-gradient(270deg, rgb(152, 207, 195), rgb(86, 181, 184));*/
@@ -32,8 +32,6 @@
     width: 100%;
     //margin-bottom: 22px;
     border-radius: 10px;
-
-
   }
 
   &__image {
@@ -42,12 +40,8 @@
     border-radius: 10px;
    // margin-top: 15px;
     transition: all ease-in-out .4s;
-
-   //
     //object-fit: contain;
    // zoom: 1%;
-
-
   }
 
 }
@@ -60,4 +54,63 @@
   text-align: center;
   font-size: 20px;
   margin-bottom: 5px;
+}
+
+@media (max-width: 1110px) {
+  .item {
+    margin-bottom: 30px;
+    width: 220px;
+    max-height: 250px;
+    padding: 8px;
+    -webkit-box-shadow: 0px 15px 18px -3px rgba(34, 60, 80, 0.56);
+    -moz-box-shadow: 0px 15px 18px -3px rgba(34, 60, 80, 0.56);
+    box-shadow: 0px 15px 18px -3px rgba(34, 60, 80, 0.56);
+
+    &__image {
+      margin-bottom: 15px;
+    }
+  }
+
+
+}
+
+@media (max-width: 950px) {
+  .item {
+    margin-bottom: 20px;
+    width: 168px;
+    max-height: 200px;
+    padding: 6px;
+    -webkit-box-shadow: 0px 12px 15px -3px rgba(34, 60, 80, 0.56);
+    -moz-box-shadow: 0px 12px 15px -3px rgba(34, 60, 80, 0.56);
+    box-shadow: 0px 12px 15px -3px rgba(34, 60, 80, 0.56);
+  }
+
+  .mainTitle {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .item {
+    margin-bottom: 30px;
+    width: 30vw;
+    max-height: 250px;
+    padding: 8px;
+    -webkit-box-shadow: 0px 15px 18px -3px rgba(34, 60, 80, 0.56);
+    -moz-box-shadow: 0px 15px 18px -3px rgba(34, 60, 80, 0.56);
+    box-shadow: 0px 15px 18px -3px rgba(34, 60, 80, 0.56);
+  }
+}
+
+@media (max-width: 570px) {
+  .item {
+    border-radius: 15px;
+    width: 47vw;
+  }
+}
+
+@media (max-width: 380px) {
+  .mainTitle {
+    font-size: 14px;
+  }
 }

@@ -25,7 +25,7 @@ const RandomPage = () => {
             <div className="buttonMain" onClick={onClickRandom}><span>Get random recipe</span></div>
             {
                 loading && !(recipes.length > 0) ?
-                    <div style={{fontSize: 40}}>Let's check the random</div>
+                    <div className={'randomTitle'}>Let's check the random</div>
                     :
                     <DishInfoHoc dishObject={recipes[0]} />
                     // <DishInfo dishObject={recipes[0]} />

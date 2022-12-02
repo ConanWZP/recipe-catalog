@@ -6,6 +6,7 @@ import typeSlice from "./reducers/typeSlice"
 import ingredientsSlice from "./reducers/ingredientsSlice"
 import ingredientsStoreSlice from "./reducers/ingredientsStoreSlice"
 import searchByIngrSlice from "./reducers/searchByIngrSlice";
+import burgerMenuSlice from "./reducers/burgerMenuSlice";
 
 
 
@@ -16,7 +17,8 @@ const  rootReduce = combineReducers({
     typeDish: typeSlice,
     ingredients: ingredientsSlice,
     ingredientsStore: ingredientsStoreSlice,
-    searchByIngr: searchByIngrSlice
+    searchByIngr: searchByIngrSlice,
+    burgerMenu: burgerMenuSlice
 })
 
 export const store = configureStore({

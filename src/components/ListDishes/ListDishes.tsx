@@ -12,21 +12,24 @@ const ListDishes = () => {
 
     const {name} = useParams()
     const dispatch = useAppDispatch()
-    const {dishesObj, currentPage, pages, status} = useAppSelector(state => state.typeDish)
+    const {dishesObj, currentPage, pages, status, query} = useAppSelector(state => state.typeDish)
 
     const offset = dishesObj.offset
 
 
     /*let [totalPages, setTotalPages] = useState(0)*/
 
-
-    const [numberDishes, setNumberDishes] = useState(8)
+    let numberDishes = 8
     useEffect(() => {
         //  debugger
 
         if (name != null) {
             //  dispatch(setCurrentType(name))
-            dispatch(getDishesByType({name, numberDishes, currentPage, offset}))
+            /*if (query.length > 0) {
+                dispatch(setCurrentPageType(1))
+            }*/
+            dispatch(getDishesByType({name, numberDishes, currentPage, offset, query}))
+
         }
         /*if (dishesObj.totalResults > 900) {
             setTotalPages(Math.ceil(900/dishesObj.number))
@@ -34,7 +37,7 @@ const ListDishes = () => {
             setTotalPages(Math.ceil(dishesObj.totalResults/dishesObj.number))
         }*/
 
-    }, [/*currentType, currentPage, pages*/ currentPage])
+    }, [/*currentType, currentPage, pages*/ currentPage, query])
 
     /*if (!(dishesObj.results.length > 0)) {
         return <div>Loading</div>

@@ -157,7 +157,7 @@ const DishInfo:FC<DishInfoProps> = ({title, image, analyzedInstructions}) => {
                 { (!flag && extraSubArray.length > 0) ?
                     extraSubArray[currentPage-1].map((step: any, index: number) =>
                         <div key={index}>
-                            {step.number === 1 && <div style={{fontSize: 40}}>Stage {analyzedInstructions[index]?.name}</div>}
+                            {step.number === 1 && <div className={styles.stage}>Stage {analyzedInstructions[index]?.name}</div>}
                             <RecipeStep key={String(index) + String(step.number)} step={step}/>
                         </div>
                     )

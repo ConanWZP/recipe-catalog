@@ -103,7 +103,12 @@
  // overflow: hidden;
   min-height: 100%;
   overflow: hidden;
+}
 
+body {
+  &._lock {
+    overflow: hidden;
+  }
 }
 
 .main {
@@ -133,6 +138,16 @@
   padding-top: 150px;
   margin: 0 auto;
   //gap: ;
+
+  @media (max-width: 767.98px) {
+    display: block;
+  }
+  @media (max-width: 500px) {
+    padding-top: 120px;
+  }
+  @media (max-width: 405px) {
+    padding-top: 90px;
+  }
 }
 
 .categoriesPage__items {
@@ -154,15 +169,27 @@
   @media (max-width: 1040px) {
     padding-left: 15px;
   }
+  @media (max-width: 560px) {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 5px;
+    grid-column-gap: 0;
+  }
 }
 
 .randomPageBlock {
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   align-items: center;
   max-width: 1100px;
   //padding: 0 100px;
+}
+.randomTitle {
+  font-size: 40px;
+  @media (max-width: 440px) {
+    font-size: 30px;
+  }
 }
 
 .buttonMain {

@@ -7,10 +7,13 @@
   font-size: 30px;
   font-weight: 500;
   p {
-    //max-width: 900px;
+
+  //max-width: 900px;
     font-weight: 400;
     font-size: 22px;
     margin: 10px auto 18px auto;
+    padding: 0 10px;
+
   }
 }
 
@@ -30,6 +33,9 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 10px;
+  @media (max-width: 490px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .ingredientBlock {
     margin-bottom: 15px;
@@ -49,6 +55,23 @@
         border-radius: 50%;
       }
 
+    }
+    
+    @media (max-width: 350px) {
+      .ingredientImage {
+
+        width: 130px;
+        height: 130px;
+
+
+        img {
+
+          width: 130px;
+          height: 130px;
+
+        }
+
+      }
     }
 
     .ingredientTitle {
@@ -90,5 +113,45 @@
       display: block;
       transform: translate(-50%, -50%);
     }
+  }
+}
+
+@media (max-width: 1040px) {
+  .step {
+    margin-bottom: 30px;
+  }
+  .stepTitle {
+    font-size: 26px;
+    p {
+      font-size: 20px;
+    }
+  }
+  .stepSubtitle {
+    font-size: 23px;
+    margin-bottom: 26px;
+  }
+
+  .ingredientEmpty {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 930px) {
+  .step {
+    margin-bottom: 26px;
+  }
+  .stepTitle {
+    font-size: 24px;
+    p {
+      font-size: 18px;
+    }
+  }
+  .stepSubtitle {
+    font-size: 21px;
+    margin-bottom: 22px;
+  }
+
+  .ingredientEmpty {
+    font-size: 16px;
   }
 }

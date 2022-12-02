@@ -20,7 +20,7 @@ const DishItem:FC<DishItemProps> = ({dish, name, location}) => {
                 <NavLink to={`${location}/${dish.id}`}>
                 <img className={stylesItem.item__image} src={dish.image} />
             </NavLink>
-            <div className={stylesItem.mainTitle}>{dish.title}</div>
+            <div className={stylesItem.mainTitle}>{dish.title.length > 38 ? `${dish.title.slice(0, 38)}...` : dish.title}</div>
         </div>
     );
 };
