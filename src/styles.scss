@@ -134,10 +134,8 @@ body {
 
 .content {
   display: flex;
-  //flex-direction: row;
   padding-top: 150px;
   margin: 0 auto;
-  //gap: ;
 
   @media (max-width: 767.98px) {
     display: block;
