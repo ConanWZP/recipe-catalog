@@ -24,11 +24,11 @@ import RecipesByIngredients from "./pages/RecipesByIngredients";
 
 const App = () => {
 
-    const routes = [
+    /*const routes = [
         {path: '/',  element: <StartPage/>},
         {path: '/main', element: <MainPage/>},
 
-    ]
+    ]*/
 
     return (
         <BrowserRouter>
